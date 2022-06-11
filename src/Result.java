@@ -71,7 +71,7 @@ public class Result extends JFrame {
 			if (info.next()) {
 
 				/* FILL the blanks string with values from your defquery */
-				String skill 		= info.getString("moreSkill");
+				String skill 		= info.getString("skill");
 				String playStyle 	= info.getString("playStyle");
 				String manaRelient 	= info.getString("manaRelient");
 				String budget 		= info.getString("budget");
@@ -145,7 +145,7 @@ public class Result extends JFrame {
 					lbl_img.setPreferredSize(new Dimension(320, 180));
 					Image bufferedImage;
 					try {
-						bufferedImage = ImageIO.read(getClass().getResource("not_available.jpg"));
+						bufferedImage = ImageIO.read(getClass().getResource("not_available.png"));
 						ImageIcon icon = new ImageIcon(getScaledImage(bufferedImage, 320, 180));
 						lbl_img.setIcon(icon);
 						panel_add = lbl_img;

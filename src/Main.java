@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		try {
 			/*=====Change into your .clp filename====*/
-			rete.batch("LoL.clp");
+			rete.batch("Main.clp");
 			/*=======================================*/
 			rete.reset();
 			rete.run();

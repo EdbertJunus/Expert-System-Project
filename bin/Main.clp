@@ -198,7 +198,7 @@
     (printout t "Role: " ?championRole crlf)
     (printout t "Price: " ?championPrice crlf)
     (printout t "Play Rate: " ?championPlayRate crlf)
-   ; (retract ?index)
+    (retract ?index)
 )
 
 (defrule n-physicalChampion-y
@@ -300,7 +300,7 @@
     (printout t "Price: " ?championPrice crlf)
     (printout t "Magic: " ?championMagicPower crlf)
     (printout t "Play Rate: " ?championPlayRate crlf)
-    ;(retract ?index)
+    (retract ?index)
 )
 
 (defrule n-magicChampion-y
@@ -666,19 +666,25 @@
     (assert (answerOutput (key "mana") (answer ?manaRelient)))
     (assert (answerOutput (key "popular") (answer ?popular)))
     (run)
+    
+    
+    
     (new Result)
     
-    (bind ?*totalChamp* (+ ?*totalChamp* 6))
+    (bind ?*totalChamp* (+ ?*totalChamp* 7))
+    (bind ?*totalChamp* (+ ?*totalChamp* 2))
     (bind ?*totalChamp* (+ ?*totalChamp* ?*chosenChampAssert*))
-    
+    (printout t "Total champ: " ?*totalChamp* crlf)
     
     
     
     (facts)
-    (printout t "Chosen Champ: " ?*chosenChampAssert*)
+    
+    (printout t "Chosen Champ: " ?*chosenChampAssert* crlf)
 	(for (bind ?i 0) (< ?i (+ 7 ?*chosenChampAssert*)) (bind ?i (+ ?i 1))
     	(retract (- ?*totalChamp* ?i)) 
     )    
+    (printout t "Total champ: " ?*totalChamp* crlf)
     (readline)
     (bind ?*chosenChampAssert* 0)
     
