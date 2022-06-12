@@ -86,6 +86,7 @@
 )
 
 (deffunction printChampionList(?type)
+    (printout t crlf)
     (if (eq ?type "Physical")then
      	(printout t "Physical Champion List" crlf)
         (printout t "================================================================================" crlf)
@@ -115,10 +116,9 @@
 ;RULE
 (defrule showPhysicalChampion
 	(physicalChampList)
-    ?i <- (physicalChampion (name ?championName) (difficulty ?championDifficulty) (role ?championRole) (price ?championPrice) (playRate ?championPlayRate) ) 
+    (physicalChampion (name ?championName) (difficulty ?championDifficulty) (role ?championRole) (price ?championPrice) (playRate ?championPlayRate) ) 
     =>
     (bind ?*index* (+ ?*index* 1))
-    (printout t ?i)
     (format t "|%2.1d.|% -30s|% -10s|% -11s|%-10d|%-9d|% n" ?*index* ?championName ?championRole ?championDifficulty ?championPrice ?championPlayRate)
 )
 
@@ -163,7 +163,7 @@
         (answerOutput (key "popular") (answer "yes"))
         (answerOutput (key "role") (answer ?role))
 	)
-    ?index <- (physicalChampion (name ?championName) (difficulty ?championDifficulty &: (eq ?championDifficulty "Hard")) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (playRate ?championPlayRate &: (>= ?championPlayRate 60)))
+    (physicalChampion (name ?championName) (difficulty ?championDifficulty &: (eq ?championDifficulty "Hard")) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (playRate ?championPlayRate &: (>= ?championPlayRate 60)))
 	=>
     (assert (createChamp ?championName "physical" ?championDifficulty ?championRole ?championPrice 0 ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
@@ -173,7 +173,6 @@
     (printout t "Role: " ?championRole crlf)
     (printout t "Price: " ?championPrice crlf)
     (printout t "Play Rate: " ?championPlayRate crlf)
-    ;(retract ?index)
 )
 
 (defrule y-physicalChampion-n
@@ -188,7 +187,7 @@
         (answerOutput (key "role") (answer ?role))
 	)
     
-    ?index <- (physicalChampion (name ?championName) (difficulty ?championDifficulty &: (eq ?championDifficulty "Hard")) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (playRate ?championPlayRate &: (< ?championPlayRate 60)))
+    (physicalChampion (name ?championName) (difficulty ?championDifficulty &: (eq ?championDifficulty "Hard")) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (playRate ?championPlayRate &: (< ?championPlayRate 60)))
 	=>
     (assert (createChamp ?championName "physical" ?championDifficulty ?championRole ?championPrice 0 ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
@@ -198,7 +197,6 @@
     (printout t "Role: " ?championRole crlf)
     (printout t "Price: " ?championPrice crlf)
     (printout t "Play Rate: " ?championPlayRate crlf)
-    (retract ?index)
 )
 
 (defrule n-physicalChampion-y
@@ -213,7 +211,7 @@
         (answerOutput (key "role") (answer ?role))
 	)
     
-    ?index <- (physicalChampion (name ?championName) (difficulty ?championDifficulty &: (neq (str-index ?championDifficulty "Easy Medium" ) FALSE)) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (playRate ?championPlayRate &: (>= ?championPlayRate 60)))
+    (physicalChampion (name ?championName) (difficulty ?championDifficulty &: (neq (str-index ?championDifficulty "Easy Medium" ) FALSE)) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (playRate ?championPlayRate &: (>= ?championPlayRate 60)))
 	=>
     (assert (createChamp ?championName "physical" ?championDifficulty ?championRole ?championPrice 0 ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
@@ -223,7 +221,6 @@
     (printout t "Role: " ?championRole crlf)
     (printout t "Price: " ?championPrice crlf)
     (printout t "Play Rate: " ?championPlayRate crlf)
-    ;(retract ?index)
 )
 
 (defrule n-physicalChampion-n
@@ -238,7 +235,7 @@
         (answerOutput (key "role") (answer ?role))
 	)
     
-    ?index <- (physicalChampion (name ?championName) (difficulty ?championDifficulty &: (neq (str-index ?championDifficulty "Easy Medium" ) FALSE)) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (playRate ?championPlayRate &: (< ?championPlayRate 60)))
+    (physicalChampion (name ?championName) (difficulty ?championDifficulty &: (neq (str-index ?championDifficulty "Easy Medium" ) FALSE)) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (playRate ?championPlayRate &: (< ?championPlayRate 60)))
 	=>
     (assert (createChamp ?championName "physical" ?championDifficulty ?championRole ?championPrice 0 ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
@@ -248,7 +245,6 @@
     (printout t "Role: " ?championRole crlf)
     (printout t "Price: " ?championPrice crlf)
     (printout t "Play Rate: " ?championPlayRate crlf)
-    ;(retract ?index)
 )
 
 (defrule y-magicChampion-y
@@ -263,7 +259,7 @@
         (answerOutput (key "role") (answer ?role))
 	)
     
-    ?index <- (magicChampion (name ?championName) (difficulty ?championDifficulty &: (eq ?championDifficulty "Hard")) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (magicPower ?championMagicPower) (playRate ?championPlayRate &: (>= ?championPlayRate 60)))
+    (magicChampion (name ?championName) (difficulty ?championDifficulty &: (eq ?championDifficulty "Hard")) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (magicPower ?championMagicPower) (playRate ?championPlayRate &: (>= ?championPlayRate 60)))
 	=>
     (assert (createChamp ?championName "magic" ?championDifficulty ?championRole ?championPrice ?championMagicPower ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
@@ -274,7 +270,6 @@
     (printout t "Price: " ?championPrice crlf)
     (printout t "Magic: " ?championMagicPower crlf)
     (printout t "Play Rate: " ?championPlayRate crlf)
-    ;(retract ?index)
 )
 
 (defrule y-magicChampion-n
@@ -289,7 +284,7 @@
         (answerOutput (key "role") (answer ?role))
 	)
     
-    ?index <- (magicChampion (name ?championName) (difficulty ?championDifficulty &: (eq ?championDifficulty "Hard")) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (magicPower ?championMagicPower) (playRate ?championPlayRate &: (< ?championPlayRate 60)))
+    (magicChampion (name ?championName) (difficulty ?championDifficulty &: (eq ?championDifficulty "Hard")) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (magicPower ?championMagicPower) (playRate ?championPlayRate &: (< ?championPlayRate 60)))
 	=>
     (assert (createChamp ?championName "magic" ?championDifficulty ?championRole ?championPrice ?championMagicPower ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
@@ -300,7 +295,6 @@
     (printout t "Price: " ?championPrice crlf)
     (printout t "Magic: " ?championMagicPower crlf)
     (printout t "Play Rate: " ?championPlayRate crlf)
-    (retract ?index)
 )
 
 (defrule n-magicChampion-y
@@ -315,7 +309,7 @@
         (answerOutput (key "role") (answer ?role))
 	)
     
-    ?index <- (magicChampion (name ?championName) (difficulty ?championDifficulty &: (neq (str-index ?championDifficulty "Easy Medium" ) FALSE)) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (magicPower ?championMagicPower) (playRate ?championPlayRate &: (>= ?championPlayRate 60)))
+    (magicChampion (name ?championName) (difficulty ?championDifficulty &: (neq (str-index ?championDifficulty "Easy Medium" ) FALSE)) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (magicPower ?championMagicPower) (playRate ?championPlayRate &: (>= ?championPlayRate 60)))
 	=>
     (assert (createChamp ?championName "magic" ?championDifficulty ?championRole ?championPrice ?championMagicPower ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
@@ -326,7 +320,6 @@
     (printout t "Price: " ?championPrice crlf)
     (printout t "Magic: " ?championMagicPower crlf)
     (printout t "Play Rate: " ?championPlayRate crlf)
-    ;(retract ?index)
 )
 
 (defrule n-magicChampion-n
@@ -341,7 +334,7 @@
         (answerOutput (key "role") (answer ?role))
 	)
     
-    ?index <- (magicChampion (name ?championName) (difficulty ?championDifficulty &: (neq (str-index ?championDifficulty "Easy Medium" ) FALSE)) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (magicPower ?championMagicPower) (playRate ?championPlayRate &: (<	 ?championPlayRate 60)))
+    (magicChampion (name ?championName) (difficulty ?championDifficulty &: (neq (str-index ?championDifficulty "Easy Medium" ) FALSE)) (role ?championRole &: (neq (str-index ?championRole ?role) FALSE)) (price ?championPrice &: (>= ?budget ?championPrice )) (magicPower ?championMagicPower) (playRate ?championPlayRate &: (<	 ?championPlayRate 60)))
 	=>
     (assert (createChamp ?championName "magic" ?championDifficulty ?championRole ?championPrice ?championMagicPower ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
@@ -352,7 +345,6 @@
     (printout t "Price: " ?championPrice crlf)
     (printout t "Magic: " ?championMagicPower crlf)
     (printout t "Play Rate: " ?championPlayRate crlf)
-    ;(retract ?index)
 )
 
 ;MENU-FUNCTION
@@ -370,24 +362,24 @@
 	    )
 	    (if (eq ?input 1) then
             (printChampionList "Physical")
-            
-            (printout t "Press ENTER to continue")
+            (printout t crlf "Press ENTER to continue ...")
     		(readline)
 	     elif (eq ?input 2) then
             (printChampionList "Magic")
-            
-            (printout t "Press ENTER to continue")
+            (printout t crlf "Press ENTER to continue ...")
     		(readline)
 	    )
+        
 	)
     
     
 )
 
 (deffunction addChampion()
-    (enter)
+
     (bind ?input -1)
 	(while (or (< ?input 0) (> ?input 2))
+        (enter)
         (chooseChampionType)
 	    (bind ?input (read))
 	    ;Check Numeric
@@ -401,28 +393,31 @@
     (bind ?roleType "")
     (bind ?priceMinimum 0)
     (bind ?priceMaximum 0)
+    (bind ?type "")
     (if (eq ?input 1) then
         (bind ?roleType "Marksman")
         (bind ?priceMinimum 1000)
         (bind ?priceMaximum 5500)
+        (bind ?type "Physical")
      elif (eq ?input 2) then
         (bind ?roleType "Mage")
         (bind ?priceMinimum 1500)
         (bind ?priceMaximum 5000)
+        (bind ?type "Magic")
     )
 	(bind ?championName "")
     (while (or (< (str-length ?championName) 5) (> (str-length ?championName) 30))
-        (printout t "Insert Champion Name [5 - 30 Character]: ")
+        (printout t "Insert Champion Name[5 - 30 Character]: ")
     	(bind ?championName (readline))
     )
     (bind ?championDifficulty "")
     (while (and (neq ?championDifficulty "Easy")  (neq ?championDifficulty "Medium") (neq ?championDifficulty "Hard"))
-        (printout t "Insert Champion Difficulty [Easy|Medium|Hard]: ")
+        (printout t "Insert Champion Difficulty[Easy|Medium|Hard]: ")
         (bind ?championDifficulty (readline))
     )
     (bind ?championRole "")
     (while (and (neq ?championRole ?roleType)  (neq ?championRole "Fighter") (neq ?championRole "Tank") (neq ?championRole "Support") (neq ?championRole "Assassin"))
-        (format t "Insert Champion Role [%s|Fighter|Tank|Support|Assassin]: " ?roleType)
+        (format t "Insert Champion Role[%s|Fighter|Tank|Support|Assassin]: " ?roleType)
         (bind ?championRole (readline))
     )
 	(bind ?championPrice 0)
@@ -430,21 +425,33 @@
     (while (or (< ?championPrice ?priceMinimum) (> ?championPrice ?priceMaximum))
 		(format t "Insert Champion price [%d-%d]: " ?priceMinimum ?priceMaximum)
     	(bind ?championPrice (read))
+        ;Check Numeric
+	    (if (eq (numberp ?championPrice) FALSE) then
+	    	(bind ?championPrice 0) 
+	    )
     )
     (if (eq ?input 2) then
         (bind ?championMagic 0)
 	    (while (or (< ?championMagic 50) (> ?championMagic 200))
 	        (printout t "Insert Champion magic power [50-200]: ")
 	    	(bind ?championMagic (read))
+            ;Check Numeric
+		    (if (eq (numberp ?championMagic) FALSE) then
+		    	(bind ?championMagic 0) 
+		    )
 	    )
     )
     (bind ?championPlayRate 0)
     (while (or (< ?championPlayRate 1) (> ?championPlayRate 100) (neq (mod ?championPlayRate 5) 0))
         (printout t "Insert Champion play rate [1-100]: ")
     	(bind ?championPlayRate (read))
+        ;Check Numeric
+	    (if (eq (numberp ?championPlayRate) FALSE) then
+	    	(bind ?championPlayRate 0) 
+	    )
     )
             
-	(printout t "" crlf)
+	(printout t crlf)
 	(printout t "Champion successfully added..." crlf)
     (printout t "Press ENTER to continue ..." crlf)        
     
@@ -457,14 +464,21 @@
         (bind ?*magicNum* (insert$ ?*magicNum* (+ (length$ ?*magicNum*) 1) (+ ?*totalChamp* 1) ))
     )
     (bind ?*totalChamp* (+ ?*totalChamp* 1))
-    (readline)       
+    (readline)
+    
+    (printChampionList ?type)
+            
+    (printout t crlf "Press ENTER to continue ...")
+	(readline)
+           
     
 )
 
 (deffunction updateChampion()
-	(enter)
+	
     (bind ?input -1)
 	(while (or (< ?input 0) (> ?input 2))
+        (enter)
         (chooseChampionType)
 	    (bind ?input (read))
 	    ;Check Numeric
@@ -475,7 +489,7 @@
     (if (eq ?input 0)then
     	(return)
     )
-    (bind ?champChoice 0)
+    
     (bind ?maxChamp 1)
     (bind ?champChoiceName "")
     (if (eq ?input 1) then
@@ -488,6 +502,7 @@
         (printChampionList "Magic")
 	)
     
+    (bind ?champChoice 0)
     (while (or (< ?champChoice 1) (> ?champChoice ?maxChamp))
         (format t "Input champion number to be updated [1 - %d] : " ?maxChamp)
     	(bind ?champChoice (read))
@@ -497,7 +512,7 @@
 	    )
 	)
     
-    (printout t "" crlf)
+    (printout t crlf)
     
     (bind ?roleType "")
     (bind ?priceMinimum 0)
@@ -511,70 +526,85 @@
         (bind ?roleType "Mage")
         (bind ?priceMinimum 1500)
         (bind ?priceMaximum 5000)
-        
+
     )
 	(bind ?championName "")
     (while (or (< (str-length ?championName) 5) (> (str-length ?championName) 30))
-        (printout t "Insert Champion Name [5 - 30 Character]: ")
+        (printout t "Insert Champion Name[5 - 30 Character]: ")
     	(bind ?championName (readline))
     )
     (bind ?championDifficulty "")
     (while (and (neq ?championDifficulty "Easy")  (neq ?championDifficulty "Medium") (neq ?championDifficulty "Hard"))
-        (printout t "Insert Champion Difficulty [Easy|Medium|Hard]: ")
+        (printout t "Insert Champion Difficulty[Easy|Medium|Hard]: ")
         (bind ?championDifficulty (readline))
     )
     (bind ?championRole "")
     (while (and (neq ?championRole ?roleType)  (neq ?championRole "Fighter") (neq ?championRole "Tank") (neq ?championRole "Support") (neq ?championRole "Assassin"))
-        (format t "Insert Champion Role [%s|Fighter|Tank|Support|Assassin]: " ?roleType)
+        (format t "Insert Champion Role[%s|Fighter|Tank|Support|Assassin]: " ?roleType)
         (bind ?championRole (readline))
     )
 	(bind ?championPrice 0)
     (while (or (< ?championPrice ?priceMinimum) (> ?championPrice ?priceMaximum))
 		(format t "Insert Champion price [%d-%d]: " ?priceMinimum ?priceMaximum)
     	(bind ?championPrice (read))
+        ;Check Numeric
+	    (if (eq (numberp ?championPrice) FALSE) then
+	    	(bind ?championPrice 0) 
+	    )
     )
     (if (eq ?input 2) then
         (bind ?championMagic 0)
 	    (while (or (< ?championMagic 50) (> ?championMagic 200))
 	        (printout t "Insert Champion magic power [50-200]: ")
 	    	(bind ?championMagic (read))
+            ;Check Numeric
+		    (if (eq (numberp ?championMagic) FALSE) then
+		    	(bind ?championMagic 0) 
+		    )
 	    )
     )
     (bind ?championPlayRate 0)
     (while (or (< ?championPlayRate 1) (> ?championPlayRate 100) (neq (mod ?championPlayRate 5) 0))
         (printout t "Insert Champion play rate [1-100]: ")
     	(bind ?championPlayRate (read))
+        ;Check Numeric
+	    (if (eq (numberp ?championPlayRate) FALSE) then
+	    	(bind ?championPlayRate 0) 
+	    )
     )
     
     (bind ?factNumber 0)
     (if (eq ?input 1) then
-	    (bind ?champChoice (+ (- (length$ ?*physicalNum*) ?champChoice) 1))
+	    ;getFactNumber
+        (bind ?champChoice (+ (- (length$ ?*physicalNum*) ?champChoice) 1))
 	    (bind ?factNumber (nth$ ?champChoice ?*physicalNum*)) 
-        (printout t "champ choice outside: " ?champChoice)
+        ;updateFact
         (modify ?factNumber (name ?championName) (difficulty ?championDifficulty) (role ?championRole) (price ?championPrice) (playRate ?championPlayRate) )
+        ;updateIndex
         (bind ?*physicalNum* (delete$ ?*physicalNum* ?champChoice ?champChoice))
         (bind ?*physicalNum* (insert$ ?*physicalNum* (+ (length$ ?*physicalNum*) 1) ?factNumber  ))
      elif (eq ?input 2) then
+        ;getFactNumber
         (bind ?champChoice (+ (- (length$ ?*magicNum*) ?champChoice) 1))
 	    (bind ?factNumber (nth$ ?champChoice ?*magicNum*))
-        (printout t "champ choice outside: " ?champChoice)
+        ;updateFact
         (modify ?factNumber (name ?championName) (difficulty ?championDifficulty) (role ?championRole) (price ?championPrice) (magicPower ?championMagic) (playRate ?championPlayRate) )
-		(bind ?*magicNum* (delete$ ?*magicNum* ?champChoice ?champChoice))
+		;updateIndex
+        (bind ?*magicNum* (delete$ ?*magicNum* ?champChoice ?champChoice))
         (bind ?*magicNum* (insert$ ?*magicNum* (+ (length$ ?*magicNum*) 1) ?factNumber ))
     )
-    ;(printout t "Fact Num: " ?factNumber crlf)
-    ;(facts)
     
-    (printout t "" crlf)
-	(format t "Successfully update %s champion!% n" ?champChoiceName)
+    (printout t crlf)
+	(format t "% nSuccessfully update %s champion!% n" ?champChoiceName)
     (printout t "Press ENTER to continue ...")
     (readline)   
 )
 
 (deffunction deleteChampion()
-    (enter)
+    
     (bind ?input -1)
 	(while (or (< ?input 0) (> ?input 2))
+        (enter)
         (chooseChampionType)
 	    (bind ?input (read))
 	    ;Check Numeric
@@ -585,7 +615,7 @@
     (if (eq ?input 0)then
     	(return)
     )
-    (bind ?champChoice 0)
+    
     (bind ?maxChamp 1)
     (if (eq ?input 1) then
     	(bind ?maxChamp (length$ ?*physicalNum*))
@@ -594,31 +624,37 @@
         (bind ?maxChamp (length$ ?*magicNum*))
         (printChampionList "Magic")
 	)
+    
+    (bind ?champChoice 0)
     (while (or (< ?champChoice 1) (> ?champChoice ?maxChamp))
         (format t "Input champion number to be deleted [1 - %d] : " ?maxChamp)
     	(bind ?champChoice (read))
+        ;Check Numeric
+	    (if (eq (numberp ?champChoice) FALSE) then
+	    	(bind ?champChoice -1) 
+	    )
 	)
     (bind ?factNumber 0)
     
     (if (eq ?input 1) then
+        ;getFactNumber
         (bind ?champChoice (+ (- (length$ ?*physicalNum*) ?champChoice) 1))
 	    (bind ?factNumber (nth$ ?champChoice ?*physicalNum*)) 
         
-        (printout t "champ choice outside: " ?champChoice)
-        ;(bind ?champChoice (+ (- (length$ ?*physicalNum*) ?champChoice) 1))
+        ;removeIndex
         (bind ?*physicalNum* (delete$ ?*physicalNum* ?champChoice ?champChoice))
      elif (eq ?input 2) then
+        ;getFactNumber
         (bind ?champChoice (+ (- (length$ ?*magicNum*) ?champChoice) 1))
 	    (bind ?factNumber (nth$ ?champChoice ?*magicNum*))
         
-        (printout t "champ choice outside: " ?champChoice)
-        ;(bind ?champChoice (+ (- (length$ ?*magicNum*) ?champChoice) 1))
+        ;removeIndex
         (bind ?*magicNum* (delete$ ?*magicNum* ?champChoice ?champChoice))
     )
     (retract ?factNumber)
     
-    (printout t "" crlf)
-	(format t "Successfully deleted champion!")
+    (printout t crlf)
+	(printout t "Successfully deleted champion!" crlf)
     (printout t "Press ENTER to continue ...")
     (readline)   
     
@@ -720,13 +756,13 @@
     (magicChampion (name "Blitzcrank") (difficulty "Easy") (role "Support") (price 3800) (magicPower 50) (playRate 60))        
 )
 (reset)
-;(facts)
 
 (bind ?menuInput 0)
 
 (while (neq ?menuInput 6)
-    (facts)
-    (printout t ?*physicalNum* " " ?*magicNum* " " ?*totalChamp* crlf)
+    ;(facts)
+    ;(printout t ?*physicalNum* " " ?*magicNum* " " ?*totalChamp* crlf)
+    (enter)
 	(showMenu)
     (bind ?menuInput (read))
     ;Check Numeric
