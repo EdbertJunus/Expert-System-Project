@@ -167,12 +167,13 @@
 	=>
     (assert (createChamp ?championName "physical" ?championDifficulty ?championRole ?championPrice 0 ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
-    (printout t "physic y-y" crlf)
-    (printout t "Name: " ?championName crlf)
-    (printout t "Difficulty: " ?championDifficulty crlf)
-    (printout t "Role: " ?championRole crlf)
-    (printout t "Price: " ?championPrice crlf)
-    (printout t "Play Rate: " ?championPlayRate crlf)
+    
+    ;(printout t "physic y-y" crlf)
+    ;(printout t "Name: " ?championName crlf)
+    ;(printout t "Difficulty: " ?championDifficulty crlf)
+    ;(printout t "Role: " ?championRole crlf)
+    ;(printout t "Price: " ?championPrice crlf)
+    ;(printout t "Play Rate: " ?championPlayRate crlf)
 )
 
 (defrule y-physicalChampion-n
@@ -191,12 +192,13 @@
 	=>
     (assert (createChamp ?championName "physical" ?championDifficulty ?championRole ?championPrice 0 ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
-    (printout t "physic y-n" crlf)
-    (printout t "Name: " ?championName crlf)
-    (printout t "Difficulty: " ?championDifficulty crlf)
-    (printout t "Role: " ?championRole crlf)
-    (printout t "Price: " ?championPrice crlf)
-    (printout t "Play Rate: " ?championPlayRate crlf)
+    
+    ;(printout t "physic y-n" crlf)
+    ;(printout t "Name: " ?championName crlf)
+    ;(printout t "Difficulty: " ?championDifficulty crlf)
+    ;(printout t "Role: " ?championRole crlf)
+    ;(printout t "Price: " ?championPrice crlf)
+    ;(printout t "Play Rate: " ?championPlayRate crlf)
 )
 
 (defrule n-physicalChampion-y
@@ -215,12 +217,13 @@
 	=>
     (assert (createChamp ?championName "physical" ?championDifficulty ?championRole ?championPrice 0 ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
-    (printout t "physic n-y" crlf)
-    (printout t "Name: " ?championName crlf)
-    (printout t "Difficulty: " ?championDifficulty crlf)
-    (printout t "Role: " ?championRole crlf)
-    (printout t "Price: " ?championPrice crlf)
-    (printout t "Play Rate: " ?championPlayRate crlf)
+    
+    ;(printout t "physic n-y" crlf)
+    ;(printout t "Name: " ?championName crlf)
+    ;(printout t "Difficulty: " ?championDifficulty crlf)
+    ;(printout t "Role: " ?championRole crlf)
+    ;(printout t "Price: " ?championPrice crlf)
+    ;(printout t "Play Rate: " ?championPlayRate crlf)
 )
 
 (defrule n-physicalChampion-n
@@ -239,12 +242,13 @@
 	=>
     (assert (createChamp ?championName "physical" ?championDifficulty ?championRole ?championPrice 0 ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
-    (printout t "physic n-n" crlf)
-    (printout t "Name: " ?championName crlf)
-    (printout t "Difficulty: " ?championDifficulty crlf)
-    (printout t "Role: " ?championRole crlf)
-    (printout t "Price: " ?championPrice crlf)
-    (printout t "Play Rate: " ?championPlayRate crlf)
+    
+    ;(printout t "physic n-n" crlf)
+    ;(printout t "Name: " ?championName crlf)
+    ;(printout t "Difficulty: " ?championDifficulty crlf)
+    ;(printout t "Role: " ?championRole crlf)
+    ;(printout t "Price: " ?championPrice crlf)
+    ;(printout t "Play Rate: " ?championPlayRate crlf)
 )
 
 (defrule y-magicChampion-y
@@ -263,13 +267,14 @@
 	=>
     (assert (createChamp ?championName "magic" ?championDifficulty ?championRole ?championPrice ?championMagicPower ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
-    (printout t "magic y-y" crlf)
-    (printout t "Name: " ?championName crlf)
-    (printout t "Difficulty: " ?championDifficulty crlf)
-    (printout t "Role: " ?championRole crlf)
-    (printout t "Price: " ?championPrice crlf)
-    (printout t "Magic: " ?championMagicPower crlf)
-    (printout t "Play Rate: " ?championPlayRate crlf)
+    
+    ;(printout t "magic y-y" crlf)
+    ;(printout t "Name: " ?championName crlf)
+    ;(printout t "Difficulty: " ?championDifficulty crlf)
+    ;(printout t "Role: " ?championRole crlf)
+    ;(printout t "Price: " ?championPrice crlf)
+    ;(printout t "Magic: " ?championMagicPower crlf)
+    ;(printout t "Play Rate: " ?championPlayRate crlf)
 )
 
 (defrule y-magicChampion-n
@@ -288,13 +293,14 @@
 	=>
     (assert (createChamp ?championName "magic" ?championDifficulty ?championRole ?championPrice ?championMagicPower ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
-    (printout t "magic y-n" crlf)
-    (printout t "Name: " ?championName crlf)
-    (printout t "Difficulty: " ?championDifficulty crlf)
-    (printout t "Role: " ?championRole crlf)
-    (printout t "Price: " ?championPrice crlf)
-    (printout t "Magic: " ?championMagicPower crlf)
-    (printout t "Play Rate: " ?championPlayRate crlf)
+    
+    ;(printout t "magic y-n" crlf)
+    ;(printout t "Name: " ?championName crlf)
+    ;(printout t "Difficulty: " ?championDifficulty crlf)
+    ;(printout t "Role: " ?championRole crlf)
+    ;(printout t "Price: " ?championPrice crlf)
+    ;(printout t "Magic: " ?championMagicPower crlf)
+    ;(printout t "Play Rate: " ?championPlayRate crlf)
 )
 
 (defrule n-magicChampion-y
@@ -313,13 +319,14 @@
 	=>
     (assert (createChamp ?championName "magic" ?championDifficulty ?championRole ?championPrice ?championMagicPower ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
-    (printout t "magic n-y" crlf)
-    (printout t "Name: " ?championName crlf)
-    (printout t "Difficulty: " ?championDifficulty crlf)
-    (printout t "Role: " ?championRole crlf)
-    (printout t "Price: " ?championPrice crlf)
-    (printout t "Magic: " ?championMagicPower crlf)
-    (printout t "Play Rate: " ?championPlayRate crlf)
+    
+    ;(printout t "magic n-y" crlf)
+    ;(printout t "Name: " ?championName crlf)
+    ;(printout t "Difficulty: " ?championDifficulty crlf)
+    ;(printout t "Role: " ?championRole crlf)
+    ;(printout t "Price: " ?championPrice crlf)
+    ;(printout t "Magic: " ?championMagicPower crlf)
+    ;(printout t "Play Rate: " ?championPlayRate crlf)
 )
 
 (defrule n-magicChampion-n
@@ -338,13 +345,14 @@
 	=>
     (assert (createChamp ?championName "magic" ?championDifficulty ?championRole ?championPrice ?championMagicPower ?championPlayRate ))
     (bind ?*chosenChampAssert* (+ ?*chosenChampAssert* 1))
-    (printout t "magic n-n" crlf)
-    (printout t "Name: " ?championName crlf)
-    (printout t "Difficulty: " ?championDifficulty crlf)
-    (printout t "Role: " ?championRole crlf)
-    (printout t "Price: " ?championPrice crlf)
-    (printout t "Magic: " ?championMagicPower crlf)
-    (printout t "Play Rate: " ?championPlayRate crlf)
+    
+    ;(printout t "magic n-n" crlf)
+    ;(printout t "Name: " ?championName crlf)
+    ;(printout t "Difficulty: " ?championDifficulty crlf)
+    ;(printout t "Role: " ?championRole crlf)
+    ;(printout t "Price: " ?championPrice crlf)
+    ;(printout t "Magic: " ?championMagicPower crlf)
+    ;(printout t "Play Rate: " ?championPlayRate crlf)
 )
 
 ;MENU-FUNCTION
@@ -661,6 +669,7 @@
 )
 
 (deffunction findSuitableChampion()
+    ;(facts)
     (enter)
     (bind ?budget 0)
     (while (or (< ?budget 500) (> ?budget 5000))
@@ -691,11 +700,11 @@
         (printout t "Would you prefer a popular champion ?[yes|no]: ")
         (bind ?popular (readline))
     )
-    ;Insert Info
+    ;Insert Info for Query
     (assert (info (skill ?moreSkill) (playStyle ?playStyle) (manaRelient ?manaRelient) (budget ?budget) ))
     
     
-	
+	;Insert answerOutput
     (assert (answerOutput (key "difficulty") (answer ?moreSkill)))
     (assert (answerOutput (key "playStyle") (answer ?playStyle)))
     (assert (answerOutput (key "budget") (answer ?budget)))
@@ -703,27 +712,29 @@
     (assert (answerOutput (key "popular") (answer ?popular)))
     (run)
     
-    
-    
     (new Result)
     
-    (bind ?*totalChamp* (+ ?*totalChamp* 7))
+    ;Add 6 Assert Above
+    (bind ?*totalChamp* (+ ?*totalChamp* 6))
+    ;Add 2 Assert which is Query
     (bind ?*totalChamp* (+ ?*totalChamp* 2))
+    ;Add assert from chosenChamp
     (bind ?*totalChamp* (+ ?*totalChamp* ?*chosenChampAssert*))
-    (printout t "Total champ: " ?*totalChamp* crlf)
     
+    ;(facts)
+    ;(printout t "Total champ: " ?*totalChamp* crlf)
+    ;(printout t "Chosen Champ: " ?*chosenChampAssert* crlf)
     
-    
-    (facts)
-    
-    (printout t "Chosen Champ: " ?*chosenChampAssert* crlf)
 	(for (bind ?i 0) (< ?i (+ 7 ?*chosenChampAssert*)) (bind ?i (+ ?i 1))
-    	(retract (- ?*totalChamp* ?i)) 
+        ;(printout t ?i crlf)
+    	(retract (- (- ?*totalChamp* 2) ?i)) 
     )    
-    (printout t "Total champ: " ?*totalChamp* crlf)
-    (readline)
+    
+    ;changeChosenChamp to 0 back
     (bind ?*chosenChampAssert* 0)
     
+    (printout t "Press ENTER to continue ...")
+    (readline) 
 )
 
 
@@ -755,13 +766,12 @@
     (magicChampion (name "Soraka") (difficulty "Easy") (role "Support") (price 1500) (magicPower 50) (playRate 30))   
     (magicChampion (name "Blitzcrank") (difficulty "Easy") (role "Support") (price 3800) (magicPower 50) (playRate 60))        
 )
+
 (reset)
 
+;MENU
 (bind ?menuInput 0)
-
 (while (neq ?menuInput 6)
-    ;(facts)
-    ;(printout t ?*physicalNum* " " ?*magicNum* " " ?*totalChamp* crlf)
     (enter)
 	(showMenu)
     (bind ?menuInput (read))
