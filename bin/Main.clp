@@ -25,7 +25,7 @@
 
 (deftemplate answerOutput
 	(slot key)
-    (multislot answer)    
+    (slot answer)    
 )
 
 (deftemplate champion
@@ -49,9 +49,7 @@
 (defglobal
     ?*index* = 0
 	?*physicalNum* = (create$ 1 2 3 4 5 6 7 8 9 10)
-	?*magicNum* = (create$ 11 12 13 14 15 16 17 18 19 20)
-    ;?*chosenPhysical* = (create$ )
-    ;?*chosenMagic* = (create$ )
+	?*magicNum* = (create$ 11 12 13 14 15 16 17 18 19 20)    
     ?*totalChamp* = 20
     ?*chosenChampAssert* = 0
 )
