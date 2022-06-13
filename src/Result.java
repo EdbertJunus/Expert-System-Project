@@ -145,7 +145,7 @@ public class Result extends JFrame {
 					lbl_img.setPreferredSize(new Dimension(320, 180));
 					Image bufferedImage;
 					try {
-						bufferedImage = ImageIO.read(getClass().getResource("not_available.png"));
+						bufferedImage = ImageIO.read(getClass().getResource("not_available.jpg"));
 						ImageIcon icon = new ImageIcon(getScaledImage(bufferedImage, 320, 180));
 						lbl_img.setIcon(icon);
 						panel_add = lbl_img;
